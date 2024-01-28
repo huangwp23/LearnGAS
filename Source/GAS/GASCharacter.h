@@ -17,14 +17,6 @@ class AGASCharacter : public ACharacter, public IAbilitySystemInterface
 {
 	GENERATED_BODY()
 
-	/** Camera boom positioning the camera behind the character */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	class USpringArmComponent* CameraBoom;
-
-	/** Follow camera */
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Camera, meta = (AllowPrivateAccess = "true"))
-	class UCameraComponent* FollowCamera;
-
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 
 public:
@@ -32,10 +24,6 @@ public:
 	
 
 protected:
-
-	void MoveForward(float Value);
-	void MoveRight(float Value);
-			
 
 protected:
 	// APawn interface
@@ -45,10 +33,6 @@ protected:
 	virtual void BeginPlay();
 
 public:
-	/** Returns CameraBoom subobject **/
-	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
-	/** Returns FollowCamera subobject **/
-	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category="CharacterBase")
 	UAbilitySystemComponent* AbilitySystem;
